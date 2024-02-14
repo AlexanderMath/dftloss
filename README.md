@@ -19,7 +19,7 @@ todo
 
 # Why should engineers care about proteins?
 Proteins are nano robots. Example: the protein "ATP synathase" is an <a href="https://bionumbers.hms.harvard.edu/bionumber.aspx?s=n&v=8&id=111322#:~:text=%22%5BResearchers%5D%20favorite%20biological%20molecule,life%20%5Bprimary%20sources%5D.%22">10x10x20nm "motor"</a> rotating <a href='https://www.neuro.duke.edu/files/sites/yasuda/pub/0302207335.pdf'>100 times/s</a>. Proteins have nice engineering properties: 
-1. Proteins source code are RNA string $\{0,20\}^l$. We know the source-code of <a href='https://www.uniprot.org/uniprotkb/statistics'>250M</a> nano robots (e.g. source code of <a href='https://berthub.eu/articles/posts/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/'>mRNA vaccine</a>). 
+1. Proteins source code are RNA strings {0,20}^l. We know the source-code of <a href='https://www.uniprot.org/uniprotkb/statistics'>250M</a> nano robots (e.g. source code of <a href='https://berthub.eu/articles/posts/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/'>mRNA vaccine</a>). 
 2. Proteins are cheap to produce, we inherited a <a href="https://en.wikipedia.org/wiki/Ribosome">30x30x30nm protein factory</a> from evolution (ribosome). 
 
 Current state: We can predict the static structure of our nano robots with <a href="https://alphafold.ebi.ac.uk/entry/A0A671WMU1">AlphaFold</a>. This is huge. If we didn't know that ATP synthase is an engine, AlphaFold could predict its structure from its source code. We could probably guess from the structure that it's an engine. 
