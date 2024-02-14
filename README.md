@@ -13,7 +13,7 @@ The plot below show error |DFT-Transformer| on a validation angle during trainin
 todo
 - implement integral pre-screening `libcint/` (currently uses naive N^4/8 strategy; should reduce to at least O(N^3)) 
 - batch similar protein-ligand interactions by moving ligand (currently batches dipeptide by rotating one angle)
-- use PBE instead of B3LYP (<a href="https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=dd944567fd5930aa7f35d80bcebfbbf7f847a289">prior work</a> claim it converges faster for proteins) 
+- use PBE instead of B3LYP (<a href="https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=dd944567fd5930aa7f35d80bcebfbbf7f847a289">prior work</a> claim PBE converges faster for proteins) 
 - pre-train HF/sto3g/f32, finetune DFT PBE/def2-svp/f64
 - scale to 1000 hardware accelerators 
 
