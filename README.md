@@ -1,5 +1,5 @@
 # DFTLoss 
-Train a Transformer with 'DFTs loss function'.
+Train a Transformer with "DFTs loss function".
 
 ```
 python -m pip install tqdm matplotlib wandb pyscf==2.4.0 jax jaxlib rdkit ...
@@ -9,11 +9,12 @@ python -m pip install tqdm matplotlib wandb pyscf==2.4.0 jax jaxlib rdkit ...
 python train.py -backend gpu -level 0 -basis sto3g -mol_repeats 12 -nn -small -lr 5e-6 -min_lr 1e-6 -warmup_iters 100 -workers 7 -alanine -eri_threshold 1e-7 -nn_f32 -eri_f32 -xc_f32 -foriloop -lr_decay 10000 -rotate_deg 45 -bs 4 -wandb -checkpoint 1000
 ```
 
-Trains on different rotations of dipeptide alanine for angles in [0,45]. We plot error |pyscf-DFT| on a validation angle below. Reached ~4meV in 1h on laptop (RTX 3070 w/ 20tflops32 and 0.3tflops64). Chemical accuracy is 42meV. 
+Trains on different <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fonlinelibrary.wiley.com%2Fdoi%2Ffull%2F10.1002%2Fjcc.25589&psig=AOvVaw0ykdEHXIJkMyXfBnwFvldp&ust=1708019327173000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKDy8_uxq4QDFQAAAAAdAAAAABAE">alanine dipeptides</a> with angles in [0,45]. We plot error |pyscf-DFT| on a validation angle below. Reached ~4meV in 1h on laptop (RTX 3070 w/ 20tflops32 and 0.3tflops64). Chemical accuracy is 42meV. 
 
 <img src='figures/val_curve.png'>
 
 # Goal: Scale to 10B QPT on Proteins
+todo
 - implement integral pre-screening `libcint/` (currently uses naive N^4/8 strategy) 
 - batch similar protein-ligand interactions by moving ligand (currently batches dipeptide by rotating one angles)
 - use PBE instead of B3LYP (<a href="https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=dd944567fd5930aa7f35d80bcebfbbf7f847a289">prior work</a> claim it converges faster for proteins) 
