@@ -1,5 +1,5 @@
 # Minimal Example 
-Try on <a href="">Google Colab</a>. It trains a Transformer using physics as a "backprop-able loss function". This allows us to generate data on the fly. In this example, we use different <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fonlinelibrary.wiley.com%2Fdoi%2Ffull%2F10.1002%2Fjcc.25589&psig=AOvVaw0ykdEHXIJkMyXfBnwFvldp&ust=1708019327173000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKDy8_uxq4QDFQAAAAAdAAAAABAE">alanine dipeptides</a> with angles randomly from [0,45]. 
+Try on <a href="">Google Colab</a>. It trains a Transformer using quantum physics as a "backprop-able loss function" (specifically, <a href="https://www.nobelprize.org/uploads/2018/06/kohn-lecture.pdf">density functional theory</a>, DFT). This allows us to generate data on the fly. In this example, we use different <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fonlinelibrary.wiley.com%2Fdoi%2Ffull%2F10.1002%2Fjcc.25589&psig=AOvVaw0ykdEHXIJkMyXfBnwFvldp&ust=1708019327173000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKDy8_uxq4QDFQAAAAAdAAAAABAE">alanine dipeptides</a> with angles randomly from [0,45]. 
 
 ```
 python train.py -backend gpu -level 0 -basis sto3g -mol_repeats 12 -nn -small -lr 5e-6 -min_lr 1e-6 -warmup_iters 100 -workers 7 -alanine -eri_threshold 1e-7 -nn_f32 -eri_f32 -xc_f32 -foriloop -lr_decay 10000 -rotate_deg 45 -bs 4 -wandb -checkpoint 1000
@@ -11,7 +11,7 @@ The plot below show error |DFT-Transformer| on a validation angle during trainin
 
 # Goal: Scale to 10B QPT on Proteins
 todo
-- implement integral pre-screening `libcint/` (currently uses naive N^4/8 strategy) 
+- implement integral pre-screening `libcint/` (currently uses naive N^4/8 strategy; should reduce to at least O(N^3)) 
 - batch similar protein-ligand interactions by moving ligand (currently batches dipeptide by rotating one angles)
 - use PBE instead of B3LYP (<a href="https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=dd944567fd5930aa7f35d80bcebfbbf7f847a289">prior work</a> claim it converges faster for proteins) 
 - pre-train HF/sto3g/f32, finetune DFT PBE/def2-svp/f64
